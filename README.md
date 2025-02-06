@@ -29,3 +29,4 @@ We pride ourselves on a modern, clean, and highly interactive design aimed at en
 - 📊 **Graphical Insights**: Interactive graphs display property trends, price changes, and market forecasts with animated transitions. These visuals help users analyze data with ease.
 
 # Pages Design
+![Alt text](https://github.com/Nikhil-U-Kundar/RealEstate_Project1/blob/7590defa617477f0198a619bfa66be7b2746b286/Screenshot%20(735).png)
