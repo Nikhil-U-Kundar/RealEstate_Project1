@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Property</title>
+    <link rel="stylesheet"href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image:url(images/add.jpg);
+        background-size: cover;
+        height: 100vh;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    #propertyForm {
+        background-color: hsl(229, 17%, 19%);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px hsl(200, 15%, 43%);
+        width: 100%;
+        max-width: 600px;
+        box-sizing: border-box;
+        position: relative;
+        left: 350px;
+        margin: 50px;
+        align-items: center;
+        justify-content: center;
+    }
+    #propertyForm h2 {
+        margin-bottom: 20px;
+        color: #ffff;
+    }
+    #propertyForm label {
+        display: block;
+        margin-bottom: 8px;
+        color:#fff;
+    }
+    #propertyForm input[type="text"],
+    #propertyForm input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    #propertyForm input[type="file"] {
+        padding: 5px;
+    }
+    #propertyForm button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    #propertyForm button:hover {
+        background-color: #45a049;
+    }
+</style>
+<body>
+    <header class="header" data-header>
+
+        <div class="overlay" data-overlay></div>
+    
+        <div class="header-bottom">
+          <div class="container">
+    
+            <a href="#" class="logo">
+              <img src="./images/logo-light.png" alt=" logo">
+            </a>
+    
+            <nav class="navbar" data-navbar>
+    
+              <div class="navbar-top">
+    
+                <a href="#" class="logo">
+                  <img src="./images/logo-light.png" alt=" logo">
+                </a>
+    
+                <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+                  <ion-icon name="close-outline"></ion-icon>
+                </button>
+    
+              </div>
+    
+              <div class="navbar-bottom">
+                <ul class="navbar-list">
+    
+                  <li>
+                    <a href="#home" class="navbar-link" data-nav-link>Home</a>
+                  </li>
+    
+                  <li>
+                    <a href="/home#about" class="navbar-link" data-nav-link>About</a>
+                  </li>
+    
+                  <li>
+                    <a href="/home#service" class="navbar-link" data-nav-link>Service</a>
+                  </li>
+    
+                  <li>
+                    <a href="/home#property" class="navbar-link" data-nav-link> Add Property</a>
+                  </li>
+    
+                  <li>
+                    <a href="/home#blog" class="navbar-link" data-nav-link>Blog</a>
+                  </li>
+    
+                  
+    
+                </ul>
+              </div>
+    
+            </nav>
+    
+            <div class="header-bottom-actions">
+    
+             <button class="header-bottom-actions-btn" aria-label="Search">
+              <a href="properties"><ion-icon name="search-outline"></ion-icon></a>
+    
+                <span>Search</span>
+              </button>
+    
+              <button class="header-bottom-actions-btn" aria-label="Profile">
+                <a href="login"><ion-icon name="log-in-outline"></ion-icon></a>
+    
+                <span>Login</span>
+              </button>
+    
+              <button class="header-bottom-actions-btn" aria-label="Cart">
+              <a href="profile"><ion-icon name="person-circle-outline"></ion-icon></a>
+                
+                <span>Help</span>
+              </button>
+              <button class="header-bottom-actions-btn" aria-label="Cart">
+                <a href="contact"><ion-icon name="call-outline"></ion-icon></a>
+                
+                <span>Help</span>
+              </button>
+    
+    
+              <button class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
+                <ion-icon name="menu-outline"></ion-icon>
+    
+                <span>Menu</span>
+              </button>
+    
+            </div>
+    
+          </div>
+        </div>
+    
+      </header>
+    <form id="propertyForm" action="/add-property" method="post" enctype="multipart/form-data">
+        <h2>Add New Property</h2>
+
+        <label for="image">Property Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+
+        <label for="placeName">Name of Place:</label>
+        <input type="text" id="placeName" name="placeName" required>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="ownerName">Owner Name:</label>
+        <input type="text" id="ownerName" name="ownerName" required>
+
+        <label for="ownerImage">Owner Image:</label>
+        <input type="file" id="ownerImage" name="ownerImage" accept="image/*" required>
+
+        <label for="amount">Amount (in dollars):</label>
+        <input type="text" id="amount" name="amount" required>
+
+        <button type="submit">Add Property</button>
+    </form>
+    <footer class="footer">
+
+        <div class="footer-top">
+          <div class="container">
+    
+            <div class="footer-brand">
+    
+              <a href="#" class="logo">
+                <img src="./images/logo-light.png" alt="Homeverse logo">
+              </a>
+    
+              <p class="section-text">
+                "Find Your Perfect Property in Just a Few Clicks."
+              </p>
+    
+              <ul class="contact-list">
+    
+                <li>
+                  <a href="#" class="contact-link">
+                    <ion-icon name="location-outline"></ion-icon>
+    
+                    <address>GHS Rd, Bhavathi, Hampanakatta, Mangaluru, Karnataka.</address>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="tel:+0123456789" class="contact-link">
+                    <ion-icon name="call-outline"></ion-icon>
+    
+                    <span>+0123-456789</span>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="mailto:contact@homeverse.com" class="contact-link">
+                    <ion-icon name="mail-outline"></ion-icon>
+    
+                    <span>vistavillas@gmail.com</span>
+                  </a>
+                </li>
+    
+              </ul>
+    
+              <ul class="social-list">
+    
+                <li>
+                  <a href="https://www.facebook.com/people/VistaVillas-Realesates/pfbid02MtQNHs1hev8CMERxmT8h4K358PTPvBPJLifLeULe4V83yWz5WLuyGnsruhUS7v7Nl/" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="https://x.com/home" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="https://www.linkedin.com/in/nikhil-u-kundar-58ab7a243/" class="social-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="https://www.youtube.com/" class="social-link">
+                    <ion-icon name="logo-youtube"></ion-icon>
+                  </a>
+                </li>
+    
+              </ul>
+    
+            </div>
+    
+            <div class="footer-link-box">
+    
+              <ul class="footer-list">
+    
+                <li>
+                  <p class="footer-list-title">Company</p>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">About</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Blog</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">All Products</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Locations Map</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">FAQ</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Contact us</a>
+                </li>
+    
+              </ul>
+    
+              <ul class="footer-list">
+    
+                <li>
+                  <p class="footer-list-title">Services</p>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Order tracking</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Wish List</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Login</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">My account</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Terms & Conditions</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Promotional Offers</a>
+                </li>
+    
+              </ul>
+    
+              <ul class="footer-list">
+    
+                <li>
+                  <p class="footer-list-title">Customer Care</p>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Login</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">My account</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Wish List</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Order tracking</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">FAQ</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Contact us</a>
+                </li>
+    
+              </ul>
+    
+            </div>
+    
+          </div>
+        </div>
+    
+        <div class="footer-bottom">
+          <div class="container">
+    
+            <p class="copyright">
+              &copy; 2024 <a href="#">VistaVillas</a>. All Rights Reserved
+            </p>
+    
+          </div>
+        </div>
+    
+      </footer>
+    
+</body>
+</html>

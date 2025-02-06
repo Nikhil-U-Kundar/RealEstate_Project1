@@ -1,0 +1,47 @@
+/* Add your styles here */
+.main-login {
+    display: flex;
+}
+
+.left-login, .right-login {
+    flex: 1;
+    padding: 20px;
+}
+
+.card-login {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.textfield {
+    margin-bottom: 15px;
+}
+
+.textfield label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.textfield input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.submit-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #0056b3;
+}
+
+.profile {
+    padding: 20px;
+}

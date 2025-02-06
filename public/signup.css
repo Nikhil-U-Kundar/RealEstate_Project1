@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    /* background-color: cadetblue;  */
+    background-image: url(images/login1.jpg);
+    background-size: cover;
+}
+
+.success, .error {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.success {
+    background-color: #4caf50;
+    color: white;
+}
+
+.error {
+    background-color: #f44336;
+    color: white;
+}
+.form{
+    background-color: #E6E6FA;
+}
+
+.main-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.left-login {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+    left: 26px;
+    top: -40px;
+}
+
+.right-login {
+    flex: 1;
+    padding: 20px;
+    right: 15px;
+    position: relative;
+}
+
+.card-login {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.card-login h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.textfield {
+    margin-bottom: 20px;
+}
+
+.textfield label {
+    font-weight: bold;
+}
+
+.textfield input[type="text"],
+.textfield input[type="email"],
+.textfield input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.textfield input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.textfield input[type="radio"] {
+    margin-right: 5px;
+}
+
+.submit-btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+.login-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-link a {
+    color: #4caf50;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate</title>
+  <link rel="stylesheet" href="/styles.css">
+  <!-- icon link  -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+/>
+</head>
+
+<body>
+
+  <!-- navbar -->
+
+  <header class="header" data-header>
+
+    <div class="overlay" data-overlay></div>
+
+    <div class="header-bottom">
+      <div class="container">
+
+        <a href="#" class="logo">
+          <img src="./images/logo-light.png" alt="Homeverse logo">
+        </a>
+
+        <nav class="navbar" data-navbar>
+
+          <div class="navbar-top">
+
+            <a href="#" class="logo">
+              <img src="./images/logo-light.png" alt="Homeverse logo">
+            </a>
+
+            <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </div>
+
+          <div class="navbar-bottom">
+            <ul class="navbar-list">
+
+              <li>
+                <a href="/home" class="navbar-link" data-nav-link>Home</a>
+              </li>
+
+              <li>
+                <a href="/home#about" class="navbar-link" data-nav-link>About</a>
+              </li>
+
+              <li>
+                <a href="/home#service" class="navbar-link" data-nav-link>Service</a>
+              </li>
+
+              <li>
+                <a href="/home#property" class="navbar-link" data-nav-link>Property</a>
+              </li>
+
+              <li>
+                <a href="/home#blog" class="navbar-link" data-nav-link>Blog</a>
+              </li>
+
+
+
+            </ul>
+          </div>
+
+        </nav>
+
+        <div class="header-bottom-actions">
+
+          <button class="header-bottom-actions-btn" aria-label="Search">
+            <a href=""><ion-icon name="search-outline"></ion-icon></a>
+
+            <span>Search</span>
+          </button>
+
+          <button class="header-bottom-actions-btn" aria-label="Profile">
+            <a href="profile"><ion-icon name="person-circle-outline"></ion-icon></a>
+                
+                <span>Help</span>
+              </button>
+
+          <button class="header-bottom-actions-btn" aria-label="Contact">
+            <a href="contact"><ion-icon name="call-outline"></ion-icon></a>
+
+            <button class="header-bottom-actions-btn" aria-label="Cart">
+              <a href="/cart" class="cart-link"><ion-icon name="heart-circle-outline"></ion-icon>
+                <span data-cart-count>
+                  <%= cart.length %>
+                </span></a>
+
+
+              <!-- <a href="/cart" class="cart-link">Cart (<span data-cart-count><%= cart.length %></span>)</a>
+             -->
+              <span>Help</span>
+            </button>
+
+            <button class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
+              <ion-icon name="menu-outline"></ion-icon>
+
+              <span>Menu</span>
+            </button>
+
+        </div>
+
+      </div>
+    </div>
+  </header>
+  <div class="hero-content">
+    <div class="home">
+      <video style="height:70%; width: 100%; " autoplay muted loop>
+        <source src="./video/3.mp4" type="video/mp4">
+      </video>
+      <title>jhjghjghg</title>
+    </div>
+  </div>
+
+  <!-- search -->
+
+  <!-- <main>
+    <div class="search-wrapper">
+      <input type="search" data-search placeholder="Search properties...">
+      <button id="searchButton">Search</button>
+    </div> -->
+
+  <main>
+
+    <div class="search-bar">
+      <div class="dropdown">
+          <div id="drop-text" class="dropdown-text">
+              <span id="span">Vista 🏘️ Villas</span>
+          </div>
+      </div>
+
+      <div class="search-box">
+        <input type="search" data-search placeholder="Search properties...">
+        <button id="searchButton" class="fa-solid fa-magnifying-glass"></button>
+        <!-- <button id="searchButton">Search</button> -->
+      </div>
+    </div>
+    <!-- <script src="script.js"></script> -->
+
+    <!-- card -->
+
+    <section class="user-cards" data-user-cards-container>
+      <ul class="property-list">
+        <% properties.forEach(property=> { %>
+          <li class="property-item" data-property-id="<%= property.id %>">
+            <div class="property-card">
+              <figure class="card-banner">
+                <a href="#">
+                  <img src="<%= property.imageUrl %>" alt="<%= property.propertyName %>" class="w-100">
+                </a>
+                <div class="card-badge green">For Rent</div>
+                <div class="banner-actions">
+                  <button class="banner-actions-btn">
+                    <ion-icon name="location"></ion-icon>
+                    <address>
+                      <%= property.location %>
+                    </address>
+                  </button>
+                  
+                </div>
+              </figure>
+              <div class="card-content">
+                <div class="card-price">
+                  <strong>$<%= typeof property.price === 'number' ? property.price.toLocaleString() : 'N/A'  %></strong> per month
+                </div>
+                <div class="card-title">
+                  <a href="#">
+                    <%= property.propertyName %>
+                  </a>
+                </div>
+                <div class="card-text">
+                  <%= property.description %>
+                </div>
+                <ul class="card-list">
+                  <li class="card-item">
+                    <ion-icon name="bed-outline"></ion-icon>
+                    <span><strong>3</strong> Bedrooms</span>
+                  </li>
+                  <li class="card-item">
+                    <ion-icon name="man-outline"></ion-icon>
+                    <span><strong>2</strong> Bathrooms</span>
+                  </li>
+                  <li class="card-item">
+                    <ion-icon name="resize-outline"></ion-icon>
+                    <span><strong>3450</strong> Square Ft</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <div class="card-author">
+                  <figure class="author-avatar">
+                    <img src="<%= property.ownerImageUrl %>" alt="<%= property.owner %>" class="w-100">
+                  </figure>
+                  <div>
+                    <p class="author-name">
+                      <a href="#">
+                        <%= property.owner %>
+                      </a>
+                    </p>
+                    <p class="author-title">Estate Agent</p>
+                  </div>
+                </div>
+                <div class="card-footer-actions">
+                  <form action="/add_cart" method="POST">
+                    <input type="hidden" name="propertyName" value="<%= property.propertyName %>">
+                    <input type="hidden" name="address" value="<%= property.address %>">
+                    <input type="hidden" name="country" value="<%= property.country %>">
+                    <input type="hidden" name="price" value="<%= property.price %>">
+                    <input type="hidden" name="owner" value="<%= property.owner %>">
+                    <input type="hidden" name="ownerImageUrl" value="<%= property.ownerImageUrl %>">
+                    <input type="hidden" name="location" value="<%= property.location %>">
+                    <button type="submit" class="card-footer-actions-btn">
+
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+                  </form>
+                  <form action="/contactus" method="GET">
+                    <button type="submit" class="card-footer-actions-btn">
+                      <ion-icon name="add-circle-outline"></ion-icon>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </li>
+          <% }); %>
+      </ul>
+    </section>
+  </main>
+  <footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="./images/logo-light.png" alt="Homeverse logo">
+          </a>
+
+          <p class="section-text">
+            "Find Your Perfect Property in Just a Few Clicks."
+          </p>
+
+          <ul class="contact-list">
+
+            <li>
+              <a href="#" class="contact-link">
+                <ion-icon name="location-outline"></ion-icon>
+
+                <address>GHS Rd, Bhavathi, Hampanakatta, Mangaluru, Karnataka.</address>
+              </a>
+            </li>
+
+            <li>
+              <a href="tel:+0123456789" class="contact-link">
+                <ion-icon name="call-outline"></ion-icon>
+
+                <span>+0123-456789</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="mailto:contact@homeverse.com" class="contact-link">
+                <ion-icon name="mail-outline"></ion-icon>
+
+                <span>vistavillas@gmail.com</span>
+              </a>
+            </li>
+
+          </ul>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="https://www.facebook.com/people/VistaVillas-Realesates/pfbid02MtQNHs1hev8CMERxmT8h4K358PTPvBPJLifLeULe4V83yWz5WLuyGnsruhUS7v7Nl/" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://x.com/home" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.linkedin.com/in/nikhil-u-kundar-58ab7a243/" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.youtube.com/" class="social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="footer-link-box">
+
+          <ul class="footer-list">
+
+            <li>
+              <p class="footer-list-title">Company</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">About</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Blog</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">All Products</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Locations Map</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">FAQ</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Contact us</a>
+            </li>
+
+          </ul>
+
+          <ul class="footer-list">
+
+            <li>
+              <p class="footer-list-title">Services</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Order tracking</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Wish List</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Login</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">My account</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Terms & Conditions</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Promotional Offers</a>
+            </li>
+
+          </ul>
+
+          <ul class="footer-list">
+
+            <li>
+              <p class="footer-list-title">Customer Care</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Login</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">My account</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Wish List</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Order tracking</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">FAQ</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Contact us</a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2024 <a href="#">VistaVillas</a>. All Rights Reserved
+        </p>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+  <!-- end of card -->
+
+  <script>
+    
+    // Move the script here to ensure it runs after the DOM has loaded
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const searchInput = document.querySelector('[data-search]');
+      const searchButton = document.getElementById('searchButton');
+      const propertyItems = document.querySelectorAll('.property-item');
+
+      if (searchInput && searchButton && propertyItems) {
+        const filterProperties = () => {
+          const value = searchInput.value.toLowerCase();
+          propertyItems.forEach(property => {
+            const title = property.querySelector('.card-title a')?.textContent.toLowerCase() || '';
+            const description = property.querySelector('.card-text')?.textContent.toLowerCase() || '';
+            const isVisible = title.includes(value) || description.includes(value);
+            property.style.display = isVisible ? 'block' : 'none';
+          });
+        };
+
+        searchInput.addEventListener('input', filterProperties);
+        searchButton.addEventListener('click', filterProperties);
+      } else {
+        console.error('Search input, button, or property items are missing');
+      }
+    });
+
+    let dropdownBtn = document.getElementById("drop-text");
+    let list = document.getElementById("list");
+    let icon = document.getElementById("icon");
+    let span = document.getElementById("span");
+    let input = document.getElementById("search-input");
+    let listItems = document.querySelectorAll(".dropdown-list-item");
+
+    dropdownBtn.onclick = function () {
+      if (list.classList.contains("show")) {
+        icon.style.rotate = "0deg";
+      } else {
+        icon.style.rotate = "-180deg";
+      }
+      list.classList.toggle("show");
+    };
+
+    window.onclick = function (e) {
+      if (!dropdownBtn.contains(e.target)) {
+        list.classList.remove("show");
+        icon.style.rotate = "0deg";
+      }
+    };
+
+    for (let item of listItems) {
+      item.onclick = function (e) {
+        span.innerText = e.target.innerText;
+        input.placeholder = "Search properties in " + e.target.innerText + "....";
+        list.classList.remove("show");
+        icon.style.rotate = "0deg";
+      }
+    }
+
+  </script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>

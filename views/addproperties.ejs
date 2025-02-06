@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>Properties</title>
+    <style>
+        ::view-transition-new:root {
+
+/**
+ * colors
+ */
+
+--dark-jungle-green: hsl(188, 63%, 7%);
+--prussian-blue: hsl(200, 69%, 14%);
+--raisin-black-1: hsl(227, 29%, 13%);
+--raisin-black-2: hsl(229, 17%, 19%);
+--yellow-green: hsl(89, 72%, 45%);
+--orange-soda: hsl(9, 100%, 62%);
+--cultured-1: hsl(0, 0%, 93%);
+--cultured-2: hsl(192, 24%, 96%);
+--misty-rose: hsl(7, 56%, 91%);
+--alice-blue: hsl(210, 100%, 97%);
+--seashell: hsl(8, 100%, 97%);
+--cadet: hsl(200, 15%, 43%);
+--white: hsl(0, 0%, 100%);
+--black: hsl(0, 0%, 0%);
+--opal: hsl(180, 20%, 62%);
+
+/**
+ * typography
+ */
+
+--ff-nunito-sans: "Nunito Sans", sans-serif;
+--ff-poppins: "Poppins", sans-serif;
+
+--fs-1: 1.5rem; /* Decreased font size */
+--fs-2: 1.25rem; /* Decreased font size */
+--fs-3: 1.125rem; /* Decreased font size */
+--fs-4: 1rem; /* Decreased font size */
+--fs-5: 0.75rem; /* Decreased font size */
+--fs-6: 0.7rem; /* Decreased font size */
+--fs-7: 0.625rem; /* Decreased font size */
+
+--fw-500: 500;
+--fw-600: 600;
+--fw-700: 700;
+
+/**
+ * transition
+ */
+
+--transition: 0.25s ease;
+
+/**
+ * spacing
+ */
+
+--section-padding: 50px; /* Decreased padding */
+
+/**
+ * shadow
+ */
+
+--shadow-1: 0 5px 20px 0 hsla(219, 56%, 21%, 0.1);
+--shadow-2: 0 16px 32px hsla(188, 63%, 7%, 0.1);
+
+}
+
+.property {
+padding-block: var(--section-padding);
+}
+
+.property-card {
+border: 1px solid var(--alice-blue);
+box-shadow: var(--shadow-2);
+max-width: 430px; /* Increased maximum width */
+margin: 20px auto; /* Center the card and add margin */
+}
+
+.property-card .card-banner {
+position: relative;
+aspect-ratio: 2 / 1.5;
+overflow: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.property-card .card-banner a {
+height: 100%;
+width: 100%;
+}
+
+.property-card .card-banner img {
+height: 100%;
+width: 100%;
+object-fit: cover;
+transition: 0.5s ease;
+}
+
+.property-card:hover .card-banner img {
+transform: scale(1.1);
+}
+
+.property-card .card-banner::before {
+content: "";
+position: absolute;
+inset: 0;
+background: linear-gradient(to top, hsla(0, 0%, 0%, 0.95), transparent 30%);
+pointer-events: none;
+z-index: 1;
+}
+
+.property-card .banner-actions {
+position: absolute;
+bottom: 10px; /* Decreased bottom gap */
+left: 10px; /* Decreased left gap */
+right: 10px; /* Decreased right gap */
+display: flex;
+flex-wrap: wrap-reverse;
+align-items: center;
+gap: 10px 7px; /* Decreased gap */
+z-index: 1;
+}
+
+.banner-actions-btn {
+color: var(--white);
+font-size: var(--fs-7); /* Decreased font size */
+line-height: 1;
+display: flex;
+align-items: flex-end;
+gap: 3px; /* Decreased gap */
+}
+
+.banner-actions-btn ion-icon {
+font-size: 14px; /* Decreased icon size */
+}
+
+.banner-actions-btn:first-child {
+margin-right: auto;
+}
+
+.banner-actions-btn:is(:hover, :focus) {
+color: var(--orange-soda);
+}
+
+.property-card .card-content {
+padding: 25px 15px 15px; /* Increased padding */
+border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+background: white;
+}
+
+.card-price {
+color: var(--orange-soda);
+font-family: var(--ff-poppins);
+font-size: var(--fs-5);
+margin-bottom: 10px; /* Increased margin */
+}
+
+.card-price strong {
+font-size: var(--fs-4);
+font-weight: var(--fw-600);
+}
+
+.property-card .card-title {
+--font-weight: var(--fw-600);
+margin-bottom: 15px; /* Increased margin */
+}
+
+.property-card .card-title > a:is(:hover, :focus) {
+color: var(--orange-soda);
+}
+
+.property-card .card-text {
+color: var(--cadet);
+font-size: var(--fs-5);
+line-height: 1.6; /* Adjusted line height */
+margin-bottom: 25px; /* Increased margin */
+}
+
+.property-card .card-list {
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+row-gap: 15px; /* Increased row gap */
+}
+
+.property-card .card-item {
+padding-block: 5px;
+color: var(--cadet);
+font-size: var(--fs-5);
+}
+
+.property-card .card-item:not(:last-child) {
+padding-right: 15px; /* Increased padding */
+border-right: 1px solid hsla(0, 0%, 0%, 0.2);
+margin-right: 15px; /* Increased margin */
+}
+
+.property-card .card-item :is(strong, ion-icon) {
+display: inline-block;
+}
+
+.property-card .card-item ion-icon {
+margin-left: 3px; /* Increased margin */
+margin-bottom: -2px;
+}
+
+.property-card .card-item span {
+margin-top: 5px; /* Increased margin */
+}
+
+.card-footer {
+padding: 15px; /* Increased padding */
+display: flex;
+flex-wrap: wrap-reverse;
+justify-content: space-between;
+align-items: center;
+gap: 15px; /* Increased gap */
+}
+
+.card-author {
+display: flex;
+align-items: center;
+gap: 15px; /* Increased gap */
+}
+
+.author-avatar {
+width: 35px; /* Increased width */
+height: 35px; /* Increased height */
+overflow: hidden;
+border-radius: 50%;
+}
+
+.author-name > a {
+color: var(--dark-jungle-green);
+font-family: var(--ff-poppins);
+font-size: var(--fs-6);
+font-weight: var(--fw-600);
+margin-bottom: 2px;
+}
+
+.author-name > a:is(:hover, :focus) {
+color: var(--orange-soda);
+}
+
+.author-title {
+color: var(--cadet);
+font-size: var(--fs-7);
+}
+
+.card-footer-actions {
+display: flex;
+align-items: center;
+gap: 10px; /* Increased gap */
+}
+
+.card-footer-actions-btn {
+background: var(--cultured-2);
+color: var(--cadet);
+width: 35px; /* Increased width */
+height: 35px; /* Increased height */
+display: grid;
+place-items: center;
+font-size: 16px;
+}
+
+.card-footer-actions-btn:is(:hover, :focus) {
+background: var(--orange-soda);
+color: var(--white);
+}
+.user-cards {
+display: flex;
+justify-content: center;
+}
+
+.property-list {
+display: flex;
+flex-wrap: wrap;
+gap: 30px;
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.property-item {
+flex: 1 1 calc(33.333% - 20px); /* Three items per row, adjust as needed */
+box-sizing: border-box;
+}
+
+.property-card {
+border: 1px solid #ddd;
+border-radius: 5px;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.card-banner img {
+width: 100%;
+height: auto;
+}
+
+.card-content {
+padding: 15px;
+}
+
+.card-footer {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px 15px;
+background-color: #f9f9f9;
+}
+
+.card-author {
+display: flex;
+
+align-items: center;
+}
+
+.author-avatar img {
+width: 40px;
+height: 40px;
+border-radius: 50%;
+margin-right: 10px;
+}
+
+.card-footer-actions {
+display: flex;
+gap: 10px;
+}
+
+.card-footer-actions .btn {
+padding: 5px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap");
+
+:root {
+--blue: #9ab3f5;
+--purple: #9a1663;
+--white: #ffffff;
+--shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+--prussianblue:#003153;
+--orangesoda:#fa5b3d;
+}
+/* * {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+list-style-type: none;
+font-family: "Montserrat", sans-serif;
+}
+body{
+display: flex;
+align-items: center;
+height: 70vh;
+justify-content: center;
+background-color: black;
+} */
+.search-bar {
+max-width: 500px;
+margin: 0 auto;
+margin-top: 40px;
+padding: 4px;
+margin-bottom: 48px;
+display: flex;
+background-color: white;
+align-items: center;
+min-width: 700px;
+border-radius: 50px;
+height: 59px;
+margin-top: 80px;
+}
+*, *::before, *::after {
+margin: 0;
+padding: 0;
+list-style: none;
+box-sizing: border-box;
+}
+.dropdown{
+position: relative;
+width: 280px;
+border-radius: 50px;
+border: 1px solid var(--white);
+background-color: var(--prussianblue);
+box-shadow: var(--shadow);
+cursor: pointer;
+height: 55px;
+}
+.dropdown-text{
+display: flex;
+align-items: center;
+justify-content: space-between;
+font-size: 1rem;
+font-weight: 500;
+color: var(--white);
+padding: 1.3rem 1.5rem;
+}
+.dropdown-list{
+position: absolute;
+top: 4rem;
+left: 0;
+width: 100%;
+border-radius:15px ;
+max-height:0;
+overflow: hidden;
+background-color: var(--white);
+transition:max-height 0.5s;
+}
+#list.show{
+max-height: fit-content;
+}
+
+.dropdown-list-item{
+font-size: 0.9rem;
+font-weight: 500;
+padding: 1rem 0 1rem 1.5rem;
+cursor: pointer;
+transition: margin-left 0.2s ease,color 0.2s ease;
+}
+.dropdown-list-item:hover{
+margin-left: 0.5rem;
+color:var(--orangesoda);
+}
+.search-box{
+display: flex;
+align-items: center;
+padding-right: 1rem;
+width: 100%;
+color: var(--orangesoda);
+height: 55px;
+}
+.search-box input{
+padding: 1rem;
+width: 100%;
+font-size: 1rem;
+font-weight: 500;
+color: var(--orangesoda);
+border: 0;
+outline: 0;
+}
+.search-box i{
+font-size: 1.3rem;
+cursor: pointer;
+}
+.search-box input::placeholder{
+font-size: 1rem;
+font-weight: 500;
+color: var(--orangesoda);
+}
+    </style>
+</head>
+
+<body>
+    <header class="header" data-header>
+
+        <div class="overlay" data-overlay></div>
+    
+        <div class="header-bottom">
+          <div class="container">
+    
+            <a href="#" class="logo">
+              <img src="./images/logo-light.png" alt=" logo">
+            </a>
+    
+            <nav class="navbar" data-navbar>
+    
+              <div class="navbar-top">
+    
+                <a href="#" class="logo">
+                  <img src="./images/logo-light.png" alt=" logo">
+                </a>
+    
+                <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+                  <ion-icon name="close-outline"></ion-icon>
+                </button>
+    
+              </div>
+    
+              <div class="navbar-bottom">
+                <ul class="navbar-list">
+    
+                  <li>
+                    <a href="#home" class="navbar-link" data-nav-link>Home</a>
+                  </li>
+    
+                  <li>
+                    <a href="/home#about" class="navbar-link" data-nav-link>About</a>
+                  </li>
+    
+                  <li>
+                    <a href="/home#service" class="navbar-link" data-nav-link>Service</a>
+                  </li>
+    
+                  <li>
+                    <a href="/home#property" class="navbar-link" data-nav-link> Add Property</a>
+                  </li>
+    
+                  <li>
+                    <a href="/home#blog" class="navbar-link" data-nav-link>Blog</a>
+                  </li>
+    
+                  
+    
+                </ul>
+              </div>
+    
+            </nav>
+    
+            <div class="header-bottom-actions">
+    
+             <button class="header-bottom-actions-btn" aria-label="Search">
+              <a href="properties"><ion-icon name="search-outline"></ion-icon></a>
+    
+                <span>Search</span>
+              </button>
+    
+              <button class="header-bottom-actions-btn" aria-label="Profile">
+                <a href="login"><ion-icon name="log-in-outline"></ion-icon></a>
+    
+                <span>Login</span>
+              </button>
+    
+              <button class="header-bottom-actions-btn" aria-label="Cart">
+              <a href="profile"><ion-icon name="person-circle-outline"></ion-icon></a>
+                
+                <span>Help</span>
+              </button>
+              <button class="header-bottom-actions-btn" aria-label="Cart">
+                <a href="contact"><ion-icon name="call-outline"></ion-icon></a>
+                
+                <span>Help</span>
+              </button>
+    
+    
+              <button class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
+                <ion-icon name="menu-outline"></ion-icon>
+    
+                <span>Menu</span>
+              </button>
+    
+            </div>
+    
+          </div>
+        </div>
+    
+      </header>
+    <main>
+      <section class="hero" id="home">
+        <div class="container1">
+          <div class="hero-content">
+            <div class="home">
+              <video style="height:124% width=100%" autoplay muted loop>
+                <source src="./video/3.mp4" type="video/mp4" />
+              </video><title>jhjghjghg</title>
+            </div>
+            </div>
+        </div>
+        </section>
+        <div class="search-bar">
+            <div class="dropdown">
+                <div id="drop-text" class="dropdown-text">
+                    <span id="span">Vista 🏘️ Villas</span>
+                </div>
+            </div>
+            <div class="search-box">
+                <input type="search" id="propertySearch" placeholder="Search properties...">
+                <button id="searchButton" class="fa-solid fa-magnifying-glass"></button>
+            </div>
+        </div>
+    
+        <section class="user-cards" data-user-cards-container>
+            <ul class="property-list" id="propertyList">
+                <% if (candy && candy.length > 0) { %>
+                <% candy.forEach(property => { %>
+                <li class="property-item" data-property-id="<%= property.id %>">
+                    <div class="property-card">
+                        <figure class="card-banner">
+                            <a href="#">
+                                <img src="<%= property.imageUrl %>" alt="<%= property.placeName %>" class="w-100">
+                            </a>
+                            <div class="card-badge green">For Rent</div>
+                            <div class="banner-actions">
+                                <button class="banner-actions-btn">
+                                    <ion-icon name="location"></ion-icon>
+                                    <address>
+                                        <%= property.location %>
+                                    </address>
+                                </button>
+                                <button class="banner-actions-btn">
+                                    <ion-icon name="camera"></ion-icon>
+                                    <span>4</span>
+                                </button>
+                                <button class="banner-actions-btn">
+                                    <ion-icon name="film"></ion-icon>
+                                    <span>2</span>
+                                </button>
+                            </div>
+                        </figure>
+                        <div class="card-content">
+                            <div class="card-price">
+                                <strong>$<%= typeof property.amount === 'number' ? property.amount.toLocaleString() : 'N/A' %></strong>
+                                per month
+                            </div>
+                            <div class="card-title">
+                                <a href="#">
+                                    <%= property.placeName %>
+                                </a>
+                            </div>
+                            <div class="card-text">
+                                <%= property.description %>
+                            </div>
+                            <ul class="card-list">
+                                <li class="card-item">
+                                    <ion-icon name="bed-outline"></ion-icon>
+                                    <span><strong>3</strong> Bedrooms</span>
+                                </li>
+                                <li class="card-item">
+                                    <ion-icon name="man-outline"></ion-icon>
+                                    <span><strong>2</strong> Bathrooms</span>
+                                </li>
+                                <li class="card-item">
+                                    <ion-icon name="resize-outline"></ion-icon>
+                                    <span><strong>3450</strong> Square Ft</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-author">
+                                <figure class="author-avatar">
+                                    <img src="<%= property.ownerImageUrl %>" alt="<%= property.ownerName %>" class="w-100">
+                                </figure>
+                                <div>
+                                    <p class="author-name">
+                                        <a href="#">
+                                            <%= property.ownerName %>
+                                        </a>
+                                    </p>
+                                    <p class="author-title">Estate Agent</p>
+                                </div>
+                            </div>
+                            <div class="card-footer-actions">
+                                <form action="/add_cart" method="POST">
+                                    <input type="hidden" name="propertyName" value="<%= property.placeName %>">
+                                    <input type="hidden" name="address" value="<%= property.location %>">
+                                    <input type="hidden" name="price" value="<%= property.amount %>">
+                                    <input type="hidden" name="owner" value="<%= property.ownerName %>">
+                                    <input type="hidden" name="ownerImageUrl" value="<%= property.ownerImageUrl %>">
+                                    <input type="hidden" name="location" value="<%= property.location %>">
+                                    <button type="submit" class="card-footer-actions-btn">
+                                        <ion-icon name="heart-outline"></ion-icon>
+                                    </button>
+                                </form>
+                                <form action="/contact" method="GET">
+                                    <button type="submit" class="card-footer-actions-btn">
+                                        <ion-icon name="add-circle-outline"></ion-icon>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <% }); %>
+                <% } else { %>
+                <li>No properties found.</li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+    
+    <footer class="footer">
+
+        <div class="footer-top">
+          <div class="container">
+    
+            <div class="footer-brand">
+    
+              <a href="#" class="logo">
+                <img src="./images/logo-light.png" alt="Homeverse logo">
+              </a>
+    
+              <p class="section-text">
+                "Find Your Perfect Property in Just a Few Clicks."
+              </p>
+    
+              <ul class="contact-list">
+    
+                <li>
+                  <a href="#" class="contact-link">
+                    <ion-icon name="location-outline"></ion-icon>
+    
+                    <address>GHS Rd, Bhavathi, Hampanakatta, Mangaluru, Karnataka.</address>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="tel:+0123456789" class="contact-link">
+                    <ion-icon name="call-outline"></ion-icon>
+    
+                    <span>+0123-456789</span>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="mailto:contact@homeverse.com" class="contact-link">
+                    <ion-icon name="mail-outline"></ion-icon>
+    
+                    <span>vistavillas@gmail.com</span>
+                  </a>
+                </li>
+    
+              </ul>
+    
+              <ul class="social-list">
+    
+                <li>
+                  <a href="https://www.facebook.com/people/VistaVillas-Realesates/pfbid02MtQNHs1hev8CMERxmT8h4K358PTPvBPJLifLeULe4V83yWz5WLuyGnsruhUS7v7Nl/" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="https://x.com/home" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="https://www.linkedin.com/in/nikhil-u-kundar-58ab7a243/" class="social-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </li>
+    
+                <li>
+                  <a href="https://www.youtube.com/" class="social-link">
+                    <ion-icon name="logo-youtube"></ion-icon>
+                  </a>
+                </li>
+    
+              </ul>
+    
+            </div>
+    
+            <div class="footer-link-box">
+    
+              <ul class="footer-list">
+    
+                <li>
+                  <p class="footer-list-title">Company</p>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">About</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Blog</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">All Products</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Locations Map</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">FAQ</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Contact us</a>
+                </li>
+    
+              </ul>
+    
+              <ul class="footer-list">
+    
+                <li>
+                  <p class="footer-list-title">Services</p>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Order tracking</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Wish List</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Login</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">My account</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Terms & Conditions</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Promotional Offers</a>
+                </li>
+    
+              </ul>
+    
+              <ul class="footer-list">
+    
+                <li>
+                  <p class="footer-list-title">Customer Care</p>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Login</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">My account</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Wish List</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Order tracking</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">FAQ</a>
+                </li>
+    
+                <li>
+                  <a href="#" class="footer-link">Contact us</a>
+                </li>
+    
+              </ul>
+    
+            </div>
+    
+          </div>
+        </div>
+    
+        <div class="footer-bottom">
+          <div class="container">
+    
+            <p class="copyright">
+              &copy; 2024 <a href="#">VistaVillas</a>. All Rights Reserved
+            </p>
+    
+          </div>
+        </div>
+    
+      </footer>
+    <script>
+        // Get the input element
+const searchInput = document.getElementById('propertySearch');
+
+// Add event listener
+searchInput.addEventListener('input', function() {
+    const searchQuery = this.value.toLowerCase(); // Convert search query to lowercase for case-insensitive comparison
+
+    // Get all property items
+    const propertyItems = document.querySelectorAll('.property-item');
+
+    // Loop through each property item
+    propertyItems.forEach(item => {
+        const propertyTitle = item.querySelector('.card-title').innerText.toLowerCase(); // Get property title
+        const propertyDescription = item.querySelector('.card-text').innerText.toLowerCase(); // Get property description
+
+        // Check if property title or description contains the search query
+        if (propertyTitle.includes(searchQuery) || propertyDescription.includes(searchQuery)) {
+            item.style.display = 'block'; // Show the property item
+        } else {
+            item.style.display = 'none'; // Hide the property item
+        }
+    });
+});
+
+    </script>
+</body>
+
+</html>

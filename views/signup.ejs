@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/signup.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <title>sign Up</title>
+</head>
+<body>
+    <form action="/signup" method="post" enctype="multipart/form-data">
+        <% if (success_msg) { %>
+            <div class="success"><%= success_msg %></div>
+        <% } %>
+        <% if (error_msg) { %>
+            <div class="error"><%= error_msg %></div>
+        <% } %>
+        <div class="main-login">
+            <div class="left-login">
+                <p class="hero-subtitle">
+                    <ion-icon name="home"></ion-icon>
+                    <span><h1>VistaVillas</h1>
+                        <h3>Luxurious living amidst scenic beauty and modern convenience.</h3></span>
+                </p>
+            </div>
+            <div class="right-login">
+                <div class="card-login">
+                    <h1>SIGN UP</h1>
+                    <div class="textfield">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="textfield">
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="textfield">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="textfield">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="textfield">
+                        <label for="gender">Gender</label>
+                        <input type="radio" id="gender-male" name="gender" value="Male" required>
+                        <label for="gender-male">Male</label>
+                        <input type="radio" id="gender-female" name="gender" value="Female" required>
+                        <label for="gender-female">Female</label>
+                    </div>
+                    <div class="textfield">
+                        <label for="profilePhoto">Profile Photo</label>
+                        <input type="file" id="profilePhoto" name="profilePhoto">
+                    </div>
+                    <div class="login-link">
+                        Already have an account? <a href="/login">Login</a>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit</button>
+                   
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
