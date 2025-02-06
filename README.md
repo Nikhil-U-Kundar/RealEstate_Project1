@@ -29,4 +29,15 @@ We pride ourselves on a modern, clean, and highly interactive design aimed at en
 - 📊 **Graphical Insights**: Interactive graphs display property trends, price changes, and market forecasts with animated transitions. These visuals help users analyze data with ease.
 
 # Pages Design
+## Login Page
 ![Alt text](https://github.com/Nikhil-U-Kundar/RealEstate_Project1/blob/7590defa617477f0198a619bfa66be7b2746b286/Screenshot%20(735).png)
+
+## Home Page
+![Alt text](https://github.com/Nikhil-U-Kundar/RealEstate_Project1/blob/4169e60b6921204eb64d8991cce04e6d74d7667c/Screenshot%20(734).png)
+
+## Serach Page
+![Alt text](https://github.com/Nikhil-U-Kundar/RealEstate_Project1/blob/4169e60b6921204eb64d8991cce04e6d74d7667c/Screenshot%20(737).png)
+
+## Different Sites
+![Alt text](https://github.com/Nikhil-U-Kundar/RealEstate_Project1/blob/4169e60b6921204eb64d8991cce04e6d74d7667c/Screenshot%20(736).png)
+
