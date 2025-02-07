@@ -1,0 +1,464 @@
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/ionicons@5.5.2/dist/css/ionicons.min.css">
+  </head>
+  
+  <link rel="stylesheet" href="/styles.css">
+  <!-- this is the link for icon -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <style>
+    .cart-items {
+      padding: 20px;
+      background-color: #E6E6FA;
+    }
+  
+    .cartcontainer {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      
+      
+    }
+  
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+  
+    .property-item {
+      flex: 1 1 30%; /* Adjust the basis percentage to control the number of items per row */
+      max-width: 30%;
+      box-sizing: border-box;
+      margin: 10px;
+    }
+  
+    
+  </style>
+  </head>
+<body>
+ 
+
+
+
+<!-- add navbar here -->
+<header class="header" data-header>
+
+  <div class="overlay" data-overlay></div>
+
+  <div class="header-bottom">
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="./images/logo-light.png" alt="Homeverse logo">
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+
+          <a href="#" class="logo">
+            <img src="./images/logo-light.png" alt="Homeverse logo">
+          </a>
+
+          <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+
+        </div>
+
+        <div class="navbar-bottom">
+          <ul class="navbar-list">
+
+            <li>
+              <a href="/home" class="navbar-link" data-nav-link>Home</a>
+            </li>
+
+            <li>
+              <a href="/home#about" class="navbar-link" data-nav-link>About</a>
+            </li>
+
+            <li>
+              <a href="/home#service" class="navbar-link" data-nav-link>Service</a>
+            </li>
+
+            <li>
+              <a href="/home#property" class="navbar-link" data-nav-link>Property</a>
+            </li>
+
+            <li>
+              <a href="/home#blog" class="navbar-link" data-nav-link>Blog</a>
+            </li>
+
+
+
+          </ul>
+        </div>
+
+      </nav>
+
+      <div class="header-bottom-actions">
+
+        <button class="header-bottom-actions-btn" aria-label="Search">
+          <a href=""><ion-icon name="search-outline"></ion-icon></a>
+
+          <span>Search</span>
+        </button>
+
+        <button class="header-bottom-actions-btn" aria-label="Cart">
+          <a href="profile"><ion-icon name="person-circle-outline"></ion-icon></a>
+              
+              <span>Help</span>
+            </button>
+
+        <button class="header-bottom-actions-btn" aria-label="Contact">
+          <a href="contact"><ion-icon name="call-outline"></ion-icon></a>
+
+          <button class="header-bottom-actions-btn" aria-label="Cart">
+            <a href="/cart" class="cart-link"><ion-icon name="heart-circle-outline"></ion-icon>
+              <span data-cart-count>
+                <%= cart.length %>
+              </span></a>
+
+
+            <!-- <a href="/cart" class="cart-link">Cart (<span data-cart-count><%= cart.length %></span>)</a>
+           -->
+            <span>Help</span>
+          </button>
+
+          <button class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
+            <ion-icon name="menu-outline"></ion-icon>
+
+            <span>Menu</span>
+          </button>
+
+      </div>
+
+    </div>
+  </div>
+</header>
+<!-- <div class="hero-content">
+  <div class="home">
+    <video style="height:38%; width: 100%; " autoplay muted loop>
+      <source src="./video/3.mp4" type="video/mp4">
+    </video>
+    <title>jhjghjghg</title>
+  </div>
+</div> -->
+
+
+
+
+  <main>
+    <section class="cart-items">
+      <h2>Cart Items</h2>
+      <div class="cartcontainer">
+        <div class="row">
+          <% cart.forEach((item, index) => { %>
+            <div class="col-md-4 property-item">
+              <div class="property-card mb-4">
+                <figure class="card-banner">
+                  <% if (item.imageUrl) { %>
+                    <a href="#">
+                      <img class="card-img-top" src="<%= item.imageUrl %>" alt="<%= item.propertyName %>">
+                    </a>
+                  <% } else { %>
+                    <img src="<%= item.ownerImageUrl %>" alt="<%= item.owner %>" class="card-img-top">
+                    <!-- <div class="no-image-placeholder">Image Not found</div> -->
+                  <% } %>
+                  <div class="card-badge green">For Sale</div>
+                  <div class="banner-actions">
+                    <button class="banner-actions-btn">
+                      <ion-icon name="location-outline"></ion-icon>
+                      <address><%= item.location %></address>
+                    </button>
+                    
+                  </div>
+                </figure>
+                <div class="card-content">
+                  <div class="card-price">
+                    <strong>$<%= item.price.toLocaleString() %></strong>
+                  </div>
+                  <div class="card-title">
+                    <a href="#"><%= item.propertyName %></a>
+                  </div>
+                  <div class="card-text">
+                    <%= item.address %>, <%= item.country %>
+                  </div>
+                  <ul class="card-list">
+                    <li class="card-item">
+                      <ion-icon name="bed-outline"></ion-icon>
+                      <span><strong>3</strong> Bedrooms</span>
+                    </li>
+                    <li class="card-item">
+                      <ion-icon name="man-outline"></ion-icon>
+                      <span><strong>2</strong> Bathrooms</span>
+                    </li>
+                    <li class="card-item">
+                      <ion-icon name="resize-outline"></ion-icon>
+                      <span><strong>3450</strong> Square Ft</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="card-footer">
+                  <div class="card-author">
+                    <figure class="author-avatar">
+                      <img src="<%= item.ownerImageUrl %>" alt="<%= item.owner %>" class="w-100">
+                    </figure>
+                    <div>
+                      <p class="author-name">
+                        <a href="#"><%= item.owner %></a>
+                      </p>
+                      <p class="author-title">Estate Agent</p>
+                    </div>
+                  </div>
+                  <div class="card-footer-actions">
+                    <form action="/remove_cart" method="POST">
+                      <input type="hidden" name="index" value="<%= index %>">
+                      <button class="btn btn-danger" type="submit">
+                        <ion-icon name="close-circle-outline"></ion-icon>
+                      </button>
+                    </form>
+                    <a href="/contactus" class="btn btn-primary">
+                      <ion-icon name="add-circle-outline"></ion-icon>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="./images/logo-light.png" alt="Homeverse logo">
+          </a>
+
+          <p class="section-text">
+            "Find Your Perfect Property in Just a Few Clicks."
+          </p>
+
+          <ul class="contact-list">
+
+            <li>
+              <a href="#" class="contact-link">
+                <ion-icon name="location-outline"></ion-icon>
+
+                <address>GHS Rd, Bhavathi, Hampanakatta, Mangaluru, Karnataka.</address>
+              </a>
+            </li>
+
+            <li>
+              <a href="tel:+0123456789" class="contact-link">
+                <ion-icon name="call-outline"></ion-icon>
+
+                <span>+0123-456789</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="mailto:vistavillas@gmail.com" class="contact-link">
+                <ion-icon name="mail-outline"></ion-icon>
+
+                <span>vistavillas@gmail.com</span>
+              </a>
+            </li>
+
+          </ul>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="https://www.facebook.com/people/VistaVillas-Realesates/pfbid02MtQNHs1hev8CMERxmT8h4K358PTPvBPJLifLeULe4V83yWz5WLuyGnsruhUS7v7Nl/" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://x.com/home" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.linkedin.com/in/nikhil-u-kundar-58ab7a243/" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.youtube.com/" class="social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="footer-link-box">
+
+          <ul class="footer-list">
+
+            <li>
+              <p class="footer-list-title">Company</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">About</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Blog</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">All Products</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Locations Map</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">FAQ</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Contact us</a>
+            </li>
+
+          </ul>
+
+          <ul class="footer-list">
+
+            <li>
+              <p class="footer-list-title">Services</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Order tracking</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Wish List</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Login</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">My account</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Terms & Conditions</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Promotional Offers</a>
+            </li>
+
+          </ul>
+
+          <ul class="footer-list">
+
+            <li>
+              <p class="footer-list-title">Customer Care</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Login</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">My account</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Wish List</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Order tracking</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">FAQ</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Contact us</a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2024 <a href="#">VistaVillas</a>. All Rights Reserved
+        </p>
+
+      </div>
+    </div>
+
+  </footer>
+  <script>
+    function removeItem(index){
+      fetch('/remove_cart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ index })
+      }).then(() => window.location.reload());
+    }
+  </script>
+  <script src="/script.js"></script>
+  
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

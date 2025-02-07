@@ -1,0 +1,37 @@
+{
+  "dependencies": {
+    "@google/generative-ai": "^0.11.4",
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "express.js": "^1.0.0",
+    "helmet": "^7.1.0",
+    "mongoose": "^7.6.12",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.13",
+    "openai": "^4.0.0",
+    "punycode": "^2.3.1"
+  },
+  "name": "realestate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "homepage": "https://Nikhil-U-Kundar.github.io/RealEstate_Project1",
+  "scripts": {
+  "start": "node index.js",         
+  "test": "echo \"Error: no test specified\" && exit 1",  
+  "build": "echo 'No build for backend'",  
+  "predeploy": "npm run build",     
+  "deploy": "gh-pages -d build"     
+}
+,
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
